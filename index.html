@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="ScrollPlot.js"></script>
+    <title>ScrollPlot</title>
+</head>
+<body>
+    <template id="scrollPlot">
+        <style>
+            #root {
+                overflow-x: scroll;
+                background-color: #77f;
+            }
+            #cnvs {
+                background-color: #ccf;
+                position: relative;
+            }
+        </style>
+        <div id="root">
+            <div id="placeholder"></div>
+            <canvas id="cnvs"></canvas>
+        </div>
+    </template>
+    <scroll-plot id="sp" height="200" seconds="30" sample-rate="16"></scroll-plot>
+
+    <div>
+        <button id="bn">Append</button>
+    </div>
+
+    <script>
+        const sp = document.getElementById('sp')
+        const samples = 256
+        const sinus = []
+        for (let i = 0; i < samples; ++i) {
+            const x = Math.PI * 8 * i / samples
+            sinus.push(Math.sin(x) * 100)
+        }
+
+        document.getElementById('bn').addEventListener('click', () => sp.push(sinus))
+    </script>
+</body>
+</html>
