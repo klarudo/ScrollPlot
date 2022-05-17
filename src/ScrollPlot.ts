@@ -46,9 +46,6 @@ class ScrollPlot extends HTMLElement {
 
         this.#root.addEventListener('scroll', (ev) => {
             this.#offset = this.#root!.scrollLeft
-            if (this.#cnvs) {
-                this.#cnvs.style.left = `${this.#offset}px`
-            }
             this.redraw()
         })
 
