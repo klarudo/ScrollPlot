@@ -16,12 +16,14 @@
             }
             #cnvs {
                 background-color: #ccf;
-                position: relative;
+                position: sticky;
+                left: 0px;
             }
         </style>
         <div id="root">
-            <div id="placeholder"></div>
-            <canvas id="cnvs"></canvas>
+            <div id="placeholder">
+                <canvas id="cnvs"></canvas>
+            </div>
         </div>
     </template>
     <scroll-plot id="sp" height="200" seconds="30" sample-rate="16"></scroll-plot>
